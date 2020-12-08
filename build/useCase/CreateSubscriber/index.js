@@ -1,0 +1,13 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.createSubscriberController = exports.createSubscriberUseCase = void 0;
+const MailTrapMailProvider_1 = require("../../providers/Implementations/MailTrapMailProvider");
+const SequelizeSubscribersRepository_1 = require("../../repositories/Implementations/SequelizeSubscribersRepository");
+const CreateSubscriberController_1 = require("./CreateSubscriberController");
+const CreateSubscriberUseCase_1 = require("./CreateSubscriberUseCase");
+const mailTrapProvider = new MailTrapMailProvider_1.MailtrapMailProvider();
+const sequelizeSubscribersRepository = new SequelizeSubscribersRepository_1.SequelizeSubscribersRepository();
+const createSubscriberUseCase = new CreateSubscriberUseCase_1.CreateSubscriberUseCase(sequelizeSubscribersRepository, mailTrapProvider);
+exports.createSubscriberUseCase = createSubscriberUseCase;
+const createSubscriberController = new CreateSubscriberController_1.CreateSubscriberController(createSubscriberUseCase);
+exports.createSubscriberController = createSubscriberController;

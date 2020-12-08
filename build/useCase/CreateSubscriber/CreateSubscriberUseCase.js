@@ -1,26 +1,20 @@
-import { Subscriber } from '../../entities/Subscriber';
-import { IMailProvider } from '../../providers/IMailProvider';
-import { ISubscriberRepository } from '../../repositories/ISubscriberRepository';
-import { ICreateSubscriberRequestDTO } from './CreateSubscriberDTO';
-
-export class CreateSubscriberUseCase {
-    constructor(
-        private subscriberRepository: ISubscriberRepository,
-        private mailProvider: IMailProvider
-    ) {}
-
-    async execute(data: ICreateSubscriberRequestDTO) {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.CreateSubscriberUseCase = void 0;
+const Subscriber_1 = require("../../entities/Subscriber");
+class CreateSubscriberUseCase {
+    constructor(subscriberRepository, mailProvider) {
+        this.subscriberRepository = subscriberRepository;
+        this.mailProvider = mailProvider;
+    }
+    async execute(data) {
         const subscriberAlreadyExists = await this.subscriberRepository.findByEmailAndType(data.email, data.type);
-
         if (!subscriberAlreadyExists) {
             throw new Error('Subscriber already exists');
         }
-
-        const subscriber = new Subscriber(data);
-
+        const subscriber = new Subscriber_1.Subscriber(data);
         await this.subscriberRepository.save(subscriber)
-                .catch((err) => err);
-
+            .catch((err) => err);
         // await this.mailProvider.sendMail({
         //     to: {
         //         name: data.name,
@@ -35,3 +29,4 @@ export class CreateSubscriberUseCase {
         // });
     }
 }
+exports.CreateSubscriberUseCase = CreateSubscriberUseCase;
