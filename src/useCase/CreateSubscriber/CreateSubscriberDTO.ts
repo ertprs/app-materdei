@@ -1,0 +1,30 @@
+export interface ICreateSubscriberRequestDTO {
+    name: string;
+    gender: string;
+    dateBirth: string;
+    state: string;
+    city: string;
+    phone: string;
+    whatsapp: boolean;
+    email: string;
+    accessibility: boolean;
+    type: number;
+    voluntaryOccupationArea: number;
+    voluntaryNewArea: string;
+    voluntaryOtherCheck: boolean;
+    voluntaryOtherText: string;
+    voluntaryReason: number;
+    voluntaryAlreadyVoluntary: boolean;
+    voluntaryPlace: string;
+    voluntaryDisponibility: number;
+    serviceOccupationArea: number;
+    serviceNewArea: string;
+    serviceOtherCheck: boolean;
+    serviceOtherText: string;
+    serviceWayOfWorking: number;
+    serviceBillingWay: number;
+    serviceSchooling: number;
+    serviceTimeSegment: number;
+    commercialOccupationArea: number;
+    commercialOccupationArea2: number;
+}
