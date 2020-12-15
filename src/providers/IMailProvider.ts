@@ -6,6 +6,7 @@ interface IAddress {
 export interface IMessage {
     to: IAddress;
     from: IAddress;
+    replyTo: IAddress,
     subject: string;
     body: string;
 }
