@@ -46,7 +46,7 @@ export class SequelizeSubscribersRepository implements ISubscriberRepository {
                 replacements: {
                     name: subscriber.name,
                     gender: subscriber.gender,
-                    dateBirth: ,
+                    dateBirth: dateBirth,
                     state: subscriber.state,
                     city: subscriber.city,
                     phone: subscriber.phone,
