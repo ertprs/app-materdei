@@ -13,6 +13,7 @@ import { EnumWayOfWorking } from '../../enums/service/EnumWayOfWorking';
 import { EnumBillingWay } from '../../enums/service/EnumBillingWay';
 import { EnumSchooling } from '../../enums/service/EnumSchooling';
 import { EnumTimeSegment } from '../../enums/service/EnumTimeSegment';
+import { EnumTypes } from '../../enums/EnumTypes';
 
 export class CreateSubscriberUseCase {
     private dataProcessed: ICreateSubscriberRequestDTO = null;
@@ -55,34 +56,28 @@ export class CreateSubscriberUseCase {
     }
 
     private createEmailBody(type: number): string {
-        let body = '',
-            gender: string = EnumGenders[parseInt(this.dataProcessed.gender) - 1];
+        let gender: string = EnumGenders[parseInt(this.dataProcessed.gender) - 1];
 
-        switch (type) {
-            case 1:
-                body += '<p><strong>Trabalhar como voluntário(a)</strong><br /><br />';
-            case 2:
-                body += '<p><strong>Prestar Serviços Profissionais</strong><br /><br />';
-            case 3:
-                body += '<p><strong>Comercializar Produção Artesanal</strong><br /><br />';
-        }
-
-        body += `<strong>Nome:</strong> <span>${this.dataProcessed.name}</span><br />
-                <strong>Gênero:</strong> <span>${gender}</span><br />
-                <strong>Data de nascimento:</strong> <span>${this.dataProcessed.dateBirth}</span><br />
-                <strong>Estado:</strong> <span>${this.dataProcessed.state}</span><br />
-                <strong>Cidade:</strong> <span>${this.dataProcessed.city}</span><br />
-                <strong>Telefone:</strong> <span>${this.dataProcessed.phone}</span><br />
-                <strong>WhatsApp:</strong> <span>${this.dataProcessed.whatsapp ? 'Sim' : 'Não'}</span><br />
-                <strong>Necessidades especiais:</strong> <span>${this.dataProcessed.accessibility ? 'Sim' : 'Não'}</span><br />`;
+        let body = `<p><strong>${EnumTypes[this.dataProcessed.type - 1]}</strong><br /><br />
+                       <strong>Nome:</strong> <span>${this.dataProcessed.name}</span><br />
+                       <strong>Gênero:</strong> <span>${gender}</span><br />
+                       <strong>Data de nascimento:</strong> <span>${this.dataProcessed.dateBirth}</span><br />
+                       <strong>Estado:</strong> <span>${this.dataProcessed.state}</span><br />
+                       <strong>Cidade:</strong> <span>${this.dataProcessed.city}</span><br />
+                       <strong>Telefone:</strong> <span>${this.dataProcessed.phone}</span><br />
+                       <strong>WhatsApp:</strong> <span>${this.dataProcessed.whatsapp ? 'Sim' : 'Não'}</span><br />
+                       <strong>Necessidades especiais:</strong> <span>${this.dataProcessed.accessibility ? 'Sim' : 'Não'}</span><br />`;
 
         switch (type) {
             case 1:
                 body += this.voluntaryType();
+                break;
             case 2:
                 body += this.serviceType();
+                break;
             case 3:
                 body += this.commercialType();
+                break;
         }
 
         return body;

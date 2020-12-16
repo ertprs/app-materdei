@@ -1,5 +1,5 @@
 export enum EnumTypes {
-    'voluntary',
-    'service',
-    'commercial'
+    'Trabalhar como voluntário(a)',
+    'Prestar Serviços Profissionais',
+    'Comercializar Produção Artesanal'
 }
