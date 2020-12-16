@@ -66,6 +66,7 @@ export class CreateSubscriberUseCase {
                        <strong>Cidade:</strong> <span>${this.dataProcessed.city}</span><br />
                        <strong>Telefone:</strong> <span>${this.dataProcessed.phone}</span><br />
                        <strong>WhatsApp:</strong> <span>${this.dataProcessed.whatsapp ? 'Sim' : 'Não'}</span><br />
+                       <strong>Email:</strong> <span>${this.dataProcessed.email}</span><br />
                        <strong>Necessidades especiais:</strong> <span>${this.dataProcessed.accessibility ? 'Sim' : 'Não'}</span><br />`;
 
         switch (type) {
