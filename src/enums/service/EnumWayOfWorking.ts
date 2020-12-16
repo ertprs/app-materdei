@@ -1,4 +1,6 @@
 export enum EnumWayOfWorking {
     'Hora Trabalhada',
-    'Por projeto'
+    'Projeto/Empreitada',
+    'Percentual por resultado atingido',
+    'Parceria de risco (divisão de receitas e despesas do projeto)'
 }
