@@ -35,10 +35,7 @@ export class SequelizeSubscribersRepository implements ISubscriberRepository {
     }
 
     async save(subscriber: Subscriber): Promise<void> {
-        let d = new Date(subscriber.dateBirth),
-            dateBirth = null;
-
-        dateBirth = `${d.getFullYear()}-${(d.getMonth() + 1)}-${d.getDate()}`;
+        let dateBirth = (subscriber.dateBirth).split('-').reverse().join('-');
 
         await this.sequelize.query(
             'INSERT INTO subscribers (name,gender,date_birth,state,city,phone,whatsapp,email,accessibility,type,voluntary_occupation_area,voluntary_new_area,voluntary_other_check,voluntary_other_text,voluntary_reason,voluntary_already_voluntary,voluntary_place,voluntary_disponibility,service_occupation_area,service_new_Area,service_other_check,service_other_text,service_way_of_working,service_billing_way,service_schooling,service_time_segment,commercial_occupation_area,commercial_occupation_area2) ' +
