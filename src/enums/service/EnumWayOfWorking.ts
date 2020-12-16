@@ -1,3 +1,4 @@
 export enum EnumWayOfWorking {
-    'Hora Trabalhada'
+    'Hora Trabalhada',
+    'Por projeto'
 }

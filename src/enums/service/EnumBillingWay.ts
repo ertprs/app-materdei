@@ -1,3 +1,4 @@
 export enum EnumBillingWay {
-    'Tenho empresa própria'
+    'Tenho empresa própria',
+    'Por projeto'
 }
