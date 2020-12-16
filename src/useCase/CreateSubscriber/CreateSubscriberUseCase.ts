@@ -39,11 +39,11 @@ export class CreateSubscriberUseCase {
         await this.mailProvider.sendMail({
             to: {
                 name: 'Equipe Mater Dei',
-                email: 'contato@materdeicam.org.br'
+                email: 'contato@materdei.empresarial.ws'
             },
             from: {
                 name: 'Equipe Mater Dei',
-                email: 'contato@materdeicam.org.br'
+                email: 'contato@materdei.empresarial.ws'
             },
             replyTo: {
                 name: data.name,
