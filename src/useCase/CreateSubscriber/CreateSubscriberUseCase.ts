@@ -85,9 +85,9 @@ export class CreateSubscriberUseCase {
     }
 
     private voluntaryType() {
-        let occupationArea: string = EnumVoluntaryOccupationArea[this.dataProcessed.voluntaryOccupationArea - 1],
-            voluntaryReason: string = EnumReason[this.dataProcessed.voluntaryReason - 1],
-            disponibility: string = EnumDisponibility[this.dataProcessed.voluntaryDisponibility - 1];
+        let occupationArea: string = EnumVoluntaryOccupationArea[this.dataProcessed.voluntaryOccupationArea - 1] || '-',
+            voluntaryReason: string = EnumReason[this.dataProcessed.voluntaryReason - 1] || '-',
+            disponibility: string = EnumDisponibility[this.dataProcessed.voluntaryDisponibility - 1] || '-';
 
         return `<strong>Área de atuação:</strong> <span>${occupationArea}</span><br />
             <strong>Área Indicada:</strong> <span>${this.dataProcessed.voluntaryNewArea}</span><br />
@@ -98,11 +98,11 @@ export class CreateSubscriberUseCase {
     }
 
     private serviceType() {
-        let occupationArea: string = EnumServiceOccupationArea[this.dataProcessed.serviceOccupationArea - 1],
-            wayOfWorking: string = EnumWayOfWorking[this.dataProcessed.serviceWayOfWorking - 1],
-            billingWay: string = EnumBillingWay[this.dataProcessed.serviceBillingWay - 1],
-            schooling: string = EnumSchooling[this.dataProcessed.serviceSchooling - 1],
-            timeSegment: string = EnumTimeSegment[this.dataProcessed.serviceTimeSegment - 1];
+        let occupationArea: string = EnumServiceOccupationArea[this.dataProcessed.serviceOccupationArea - 1] || '-',
+            wayOfWorking: string = EnumWayOfWorking[this.dataProcessed.serviceWayOfWorking - 1] || '-',
+            billingWay: string = EnumBillingWay[this.dataProcessed.serviceBillingWay - 1] || '-',
+            schooling: string = EnumSchooling[this.dataProcessed.serviceSchooling - 1] || '-',
+            timeSegment: string = EnumTimeSegment[this.dataProcessed.serviceTimeSegment - 1] || '-';
 
         return `<strong>Área de atuação:</strong> <span>${occupationArea}</span><br />
                 <strong>Área Indicada:</strong> <span>${this.dataProcessed.serviceNewArea}</span><br />
@@ -114,8 +114,8 @@ export class CreateSubscriberUseCase {
     }
 
     private commercialType() {
-        let occupationArea: string = EnumCommercialOccupationArea[this.dataProcessed.commercialOccupationArea - 1],
-            occupationArea2: string = EnumCommercialOccupationArea2[this.dataProcessed.commercialOccupationArea2 - 1];
+        let occupationArea: string = EnumCommercialOccupationArea[this.dataProcessed.commercialOccupationArea - 1] || '-',
+            occupationArea2: string = EnumCommercialOccupationArea2[this.dataProcessed.commercialOccupationArea2 - 1] || '-';
 
         return `<strong>Área de atuação:</strong> <span>${occupationArea}</span><br />
                 <strong>Outro:</strong> <span>${this.dataProcessed.commercialOtherText}</span><br />
