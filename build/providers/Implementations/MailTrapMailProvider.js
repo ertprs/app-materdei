@@ -8,11 +8,14 @@ const nodemailer_1 = __importDefault(require("nodemailer"));
 class MailtrapMailProvider {
     constructor() {
         this.transporter = nodemailer_1.default.createTransport({
-            host: 'smtp.materdeicam.org.br',
+            host: 'smtp.materdei.empresarial.ws',
             port: 587,
             auth: {
-                user: 'contato@materdeicam.org.br',
-                pass: 'mudarsenha'
+                user: 'contato@materdei.empresarial.ws',
+                pass: 'xpjQDBTf!2'
+            },
+            tls: {
+                rejectUnauthorized: false
             }
         });
     }

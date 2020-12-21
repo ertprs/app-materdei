@@ -31,6 +31,8 @@ export class Subscriber {
     public serviceTimeSegment: number;
     public commercialOccupationArea: number;
     public commercialOccupationArea2: number;
+    public commercialOtherCheck: boolean;
+    public commercialOtherText: string;
 
     constructor(props: Omit<Subscriber, 'id'>, id?: string) {
         Object.assign(this, props);

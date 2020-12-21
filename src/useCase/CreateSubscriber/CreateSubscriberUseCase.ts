@@ -118,6 +118,7 @@ export class CreateSubscriberUseCase {
             occupationArea2: string = EnumCommercialOccupationArea2[this.dataProcessed.commercialOccupationArea2 - 1];
 
         return `<strong>Área de atuação:</strong> <span>${occupationArea}</span><br />
+                <strong>Outro:</strong> <span>${this.dataProcessed.commercialOtherText}</span><br />
                 <strong>Informações complementares:</strong> <span>${occupationArea2}</span><br /></p>`;
     }
 }

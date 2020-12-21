@@ -28,12 +28,13 @@ class SequelizeSubscribersRepository {
         });
     }
     async save(subscriber) {
-        await this.sequelize.query('INSERT INTO subscribers (name,gender,date_birth,state,city,phone,whatsapp,email,accessibility,type,voluntary_occupation_area,voluntary_new_area,voluntary_other_check,voluntary_other_text,voluntary_reason,voluntary_already_voluntary,voluntary_place,voluntary_disponibility,service_occupation_area,service_new_Area,service_other_check,service_other_text,service_way_of_working,service_billing_way,service_schooling,service_time_segment,commercial_occupation_area,commercial_occupation_area2) ' +
-            'VALUES (:name,:gender,:dateBirth,:state,:city,:phone,:whatsapp,:email,:accessibility,:type,:voluntaryOccupationArea,:voluntaryNewArea,:voluntaryOtherCheck,:voluntaryOtherText,:voluntaryReason,:voluntaryAlreadyVoluntary,:voluntaryPlace,:voluntaryDisponibility,:serviceOccupationArea,:serviceNewArea,:serviceOtherCheck,:serviceOtherText,:serviceWayOfWorking,:serviceBillingWay,:serviceSchooling,:serviceTimeSegment,:commercialOccupationArea,:commercialOccupationArea2)', {
+        let dateBirth = (subscriber.dateBirth).split('-').reverse().join('-');
+        await this.sequelize.query('INSERT INTO subscribers (name,gender,date_birth,state,city,phone,whatsapp,email,accessibility,type,voluntary_occupation_area,voluntary_new_area,voluntary_other_check,voluntary_other_text,voluntary_reason,voluntary_already_voluntary,voluntary_place,voluntary_disponibility,service_occupation_area,service_new_Area,service_other_check,service_other_text,service_way_of_working,service_billing_way,service_schooling,service_time_segment,commercial_occupation_area,commercial_occupation_area2,commercial_other_check,commercial_other_text) ' +
+            'VALUES (:name,:gender,:dateBirth,:state,:city,:phone,:whatsapp,:email,:accessibility,:type,:voluntaryOccupationArea,:voluntaryNewArea,:voluntaryOtherCheck,:voluntaryOtherText,:voluntaryReason,:voluntaryAlreadyVoluntary,:voluntaryPlace,:voluntaryDisponibility,:serviceOccupationArea,:serviceNewArea,:serviceOtherCheck,:serviceOtherText,:serviceWayOfWorking,:serviceBillingWay,:serviceSchooling,:serviceTimeSegment,:commercialOccupationArea,:commercialOccupationArea2,:commercialOtherCheck,:commercialOtherText)', {
             replacements: {
                 name: subscriber.name,
                 gender: subscriber.gender,
-                dateBirth: subscriber.dateBirth,
+                dateBirth: dateBirth,
                 state: subscriber.state,
                 city: subscriber.city,
                 phone: subscriber.phone,
@@ -59,6 +60,8 @@ class SequelizeSubscribersRepository {
                 serviceTimeSegment: subscriber.serviceTimeSegment,
                 commercialOccupationArea: subscriber.commercialOccupationArea,
                 commercialOccupationArea2: subscriber.commercialOccupationArea2,
+                commercialOtherCheck: subscriber.commercialOtherCheck,
+                commercialOtherText: subscriber.commercialOtherText,
             },
             type: sequelize_1.QueryTypes.SELECT
         });

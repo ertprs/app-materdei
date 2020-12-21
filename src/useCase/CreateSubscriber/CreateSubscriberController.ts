@@ -35,7 +35,9 @@ export class CreateSubscriberController {
             serviceSchooling,
             serviceTimeSegment,
             commercialOccupationArea,
-            commercialOccupationArea2
+            commercialOccupationArea2,
+            commercialOtherCheck,
+            commercialOtherText
         } = request.body;
 
         try {
@@ -68,6 +70,8 @@ export class CreateSubscriberController {
                 serviceTimeSegment: serviceTimeSegment || 0,
                 commercialOccupationArea: commercialOccupationArea || 0,
                 commercialOccupationArea2: commercialOccupationArea2 || 0,
+                commercialOtherCheck,
+                commercialOtherText: commercialOtherText || ""
             })
 
             return response.status(201).send()

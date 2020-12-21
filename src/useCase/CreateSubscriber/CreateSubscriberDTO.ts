@@ -27,4 +27,6 @@ export interface ICreateSubscriberRequestDTO {
     serviceTimeSegment: number;
     commercialOccupationArea: number;
     commercialOccupationArea2: number;
+    commercialOtherCheck: boolean;
+    commercialOtherText: string;
 }
