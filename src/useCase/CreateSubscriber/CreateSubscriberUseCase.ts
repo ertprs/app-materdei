@@ -85,7 +85,7 @@ export class CreateSubscriberUseCase {
     }
 
     private voluntaryType() {
-        let occupationArea: string = EnumVoluntaryOccupationArea[this.dataProcessed.voluntaryOccupationArea - 1] || '-',
+        let occupationArea: string = this.getSelectedValues(this.dataProcessed.commercialOccupationArea2, EnumVoluntaryOccupationArea) || '-',
             voluntaryReason: string = EnumReason[this.dataProcessed.voluntaryReason - 1] || '-',
             disponibility: string = EnumDisponibility[this.dataProcessed.voluntaryDisponibility - 1] || '-';
 
@@ -98,7 +98,7 @@ export class CreateSubscriberUseCase {
     }
 
     private serviceType() {
-        let occupationArea: string = EnumServiceOccupationArea[this.dataProcessed.serviceOccupationArea - 1] || '-',
+        let occupationArea: string = this.getSelectedValues(this.dataProcessed.commercialOccupationArea2, EnumServiceOccupationArea) || '-',
             wayOfWorking: string = EnumWayOfWorking[this.dataProcessed.serviceWayOfWorking - 1] || '-',
             billingWay: string = EnumBillingWay[this.dataProcessed.serviceBillingWay - 1] || '-',
             schooling: string = EnumSchooling[this.dataProcessed.serviceSchooling - 1] || '-',
@@ -115,10 +115,26 @@ export class CreateSubscriberUseCase {
 
     private commercialType() {
         let occupationArea: string = EnumCommercialOccupationArea[this.dataProcessed.commercialOccupationArea - 1] || '-',
-            occupationArea2: string = EnumCommercialOccupationArea2[this.dataProcessed.commercialOccupationArea2 - 1] || '-';
+            occupationArea2: string = this.getSelectedValues(this.dataProcessed.commercialOccupationArea2, EnumCommercialOccupationArea2) || '-';
 
         return `<strong>Área de atuação:</strong> <span>${occupationArea}</span><br />
                 <strong>Outro:</strong> <span>${this.dataProcessed.commercialOtherText}</span><br />
                 <strong>Informações complementares:</strong> <span>${occupationArea2}</span><br /></p>`;
+    }
+
+    private getSelectedValues(data: string, selectedEnum: any): string {
+        let splitedData = data.split(','),
+            returnData: string = '';
+
+        if (data.length > 0) {
+            splitedData.map((val: string) => {
+                returnData += `- ${selectedEnum[parseInt(val)]}; `;
+            });
+        } else {
+            returnData = '-';
+        }
+    
+
+        return returnData;
     }
 }

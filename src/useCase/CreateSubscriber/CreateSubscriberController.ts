@@ -52,7 +52,7 @@ export class CreateSubscriberController {
                 email,
                 accessibility,
                 type,
-                voluntaryOccupationArea: voluntaryOccupationArea || 0,
+                voluntaryOccupationArea: voluntaryOccupationArea || "",
                 voluntaryNewArea: voluntaryNewArea || "",
                 voluntaryOtherCheck,
                 voluntaryOtherText: voluntaryOtherText || "",
@@ -60,7 +60,7 @@ export class CreateSubscriberController {
                 voluntaryAlreadyVoluntary,
                 voluntaryPlace: voluntaryPlace || "",
                 voluntaryDisponibility: voluntaryDisponibility || 0,
-                serviceOccupationArea: serviceOccupationArea || 0,
+                serviceOccupationArea: serviceOccupationArea || "",
                 serviceNewArea: serviceNewArea || "",
                 serviceOtherCheck,
                 serviceOtherText: serviceOtherText || "",
@@ -69,7 +69,7 @@ export class CreateSubscriberController {
                 serviceSchooling: serviceSchooling || 0,
                 serviceTimeSegment: serviceTimeSegment || 0,
                 commercialOccupationArea: commercialOccupationArea || 0,
-                commercialOccupationArea2: commercialOccupationArea2 || 0,
+                commercialOccupationArea2: commercialOccupationArea2 || "",
                 commercialOtherCheck,
                 commercialOtherText: commercialOtherText || ""
             })

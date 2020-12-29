@@ -72,7 +72,7 @@ class CreateSubscriberUseCase {
         return body;
     }
     voluntaryType() {
-        let occupationArea = EnumOccupationArea_1.EnumOccupationArea[this.dataProcessed.voluntaryOccupationArea - 1], voluntaryReason = EnumReason_1.EnumReason[this.dataProcessed.voluntaryReason - 1], disponibility = EnumDisponibility_1.EnumDisponibility[this.dataProcessed.voluntaryDisponibility - 1];
+        let occupationArea = this.getSelectedValues(this.dataProcessed.commercialOccupationArea2, EnumOccupationArea_1.EnumOccupationArea) || '-', voluntaryReason = EnumReason_1.EnumReason[this.dataProcessed.voluntaryReason - 1] || '-', disponibility = EnumDisponibility_1.EnumDisponibility[this.dataProcessed.voluntaryDisponibility - 1] || '-';
         return `<strong>Área de atuação:</strong> <span>${occupationArea}</span><br />
             <strong>Área Indicada:</strong> <span>${this.dataProcessed.voluntaryNewArea}</span><br />
             <strong>Outro:</strong> <span>${this.dataProcessed.voluntaryOtherText}</span><br />
@@ -81,7 +81,7 @@ class CreateSubscriberUseCase {
             <strong>Disponibilidade:</strong> <span>${disponibility}</span><br /></p>`;
     }
     serviceType() {
-        let occupationArea = EnumOccupationArea_2.EnumOccupationArea[this.dataProcessed.serviceOccupationArea - 1], wayOfWorking = EnumWayOfWorking_1.EnumWayOfWorking[this.dataProcessed.serviceWayOfWorking - 1], billingWay = EnumBillingWay_1.EnumBillingWay[this.dataProcessed.serviceBillingWay - 1], schooling = EnumSchooling_1.EnumSchooling[this.dataProcessed.serviceSchooling - 1], timeSegment = EnumTimeSegment_1.EnumTimeSegment[this.dataProcessed.serviceTimeSegment - 1];
+        let occupationArea = this.getSelectedValues(this.dataProcessed.commercialOccupationArea2, EnumOccupationArea_2.EnumOccupationArea) || '-', wayOfWorking = EnumWayOfWorking_1.EnumWayOfWorking[this.dataProcessed.serviceWayOfWorking - 1] || '-', billingWay = EnumBillingWay_1.EnumBillingWay[this.dataProcessed.serviceBillingWay - 1] || '-', schooling = EnumSchooling_1.EnumSchooling[this.dataProcessed.serviceSchooling - 1] || '-', timeSegment = EnumTimeSegment_1.EnumTimeSegment[this.dataProcessed.serviceTimeSegment - 1] || '-';
         return `<strong>Área de atuação:</strong> <span>${occupationArea}</span><br />
                 <strong>Área Indicada:</strong> <span>${this.dataProcessed.serviceNewArea}</span><br />
                 <strong>Outro:</strong> <span>${this.dataProcessed.serviceOtherText}</span><br />
@@ -91,10 +91,22 @@ class CreateSubscriberUseCase {
                 <strong>Tempo de atuação no segmento:</strong> <span>${timeSegment}</span><br /></p>`;
     }
     commercialType() {
-        let occupationArea = EnumOccupationArea_3.EnumOccupationArea[this.dataProcessed.commercialOccupationArea - 1], occupationArea2 = EnumOccupationArea2_1.EnumOccupationArea2[this.dataProcessed.commercialOccupationArea2 - 1];
+        let occupationArea = EnumOccupationArea_3.EnumOccupationArea[this.dataProcessed.commercialOccupationArea - 1] || '-', occupationArea2 = this.getSelectedValues(this.dataProcessed.commercialOccupationArea2, EnumOccupationArea2_1.EnumOccupationArea2) || '-';
         return `<strong>Área de atuação:</strong> <span>${occupationArea}</span><br />
                 <strong>Outro:</strong> <span>${this.dataProcessed.commercialOtherText}</span><br />
                 <strong>Informações complementares:</strong> <span>${occupationArea2}</span><br /></p>`;
+    }
+    getSelectedValues(data, selectedEnum) {
+        let splitedData = data.split(','), returnData = '';
+        if (data.length > 0) {
+            splitedData.map((val) => {
+                returnData += `- ${selectedEnum[parseInt(val)]}; `;
+            });
+        }
+        else {
+            returnData = '-';
+        }
+        return returnData;
     }
 }
 exports.CreateSubscriberUseCase = CreateSubscriberUseCase;

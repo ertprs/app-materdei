@@ -13,7 +13,7 @@ export class Subscriber {
     public email: string;
     public accessibility: boolean;
     public type: number;
-    public voluntaryOccupationArea: number;
+    public voluntaryOccupationArea: string;
     public voluntaryNewArea: string;
     public voluntaryOtherCheck: boolean;
     public voluntaryOtherText: string;
@@ -21,7 +21,7 @@ export class Subscriber {
     public voluntaryAlreadyVoluntary: boolean;
     public voluntaryPlace: string;
     public voluntaryDisponibility: number;
-    public serviceOccupationArea: number;
+    public serviceOccupationArea: string;
     public serviceNewArea: string;
     public serviceOtherCheck: boolean;
     public serviceOtherText: string;
@@ -30,7 +30,7 @@ export class Subscriber {
     public serviceSchooling: number;
     public serviceTimeSegment: number;
     public commercialOccupationArea: number;
-    public commercialOccupationArea2: number;
+    public commercialOccupationArea2: string;
     public commercialOtherCheck: boolean;
     public commercialOtherText: string;
 

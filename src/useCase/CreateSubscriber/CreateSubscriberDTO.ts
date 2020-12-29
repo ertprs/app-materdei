@@ -9,7 +9,7 @@ export interface ICreateSubscriberRequestDTO {
     email: string;
     accessibility: boolean;
     type: number;
-    voluntaryOccupationArea: number;
+    voluntaryOccupationArea: string;
     voluntaryNewArea: string;
     voluntaryOtherCheck: boolean;
     voluntaryOtherText: string;
@@ -17,7 +17,7 @@ export interface ICreateSubscriberRequestDTO {
     voluntaryAlreadyVoluntary: boolean;
     voluntaryPlace: string;
     voluntaryDisponibility: number;
-    serviceOccupationArea: number;
+    serviceOccupationArea: string;
     serviceNewArea: string;
     serviceOtherCheck: boolean;
     serviceOtherText: string;
@@ -26,7 +26,7 @@ export interface ICreateSubscriberRequestDTO {
     serviceSchooling: number;
     serviceTimeSegment: number;
     commercialOccupationArea: number;
-    commercialOccupationArea2: number;
+    commercialOccupationArea2: string;
     commercialOtherCheck: boolean;
     commercialOtherText: string;
 }
