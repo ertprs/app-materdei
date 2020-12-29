@@ -85,7 +85,7 @@ export class CreateSubscriberUseCase {
     }
 
     private voluntaryType() {
-        let occupationArea: string = this.getSelectedValues(this.dataProcessed.commercialOccupationArea2, EnumVoluntaryOccupationArea) || '-',
+        let occupationArea: string = this.getSelectedValues(this.dataProcessed.voluntaryOccupationArea, EnumVoluntaryOccupationArea) || '-',
             voluntaryReason: string = EnumReason[this.dataProcessed.voluntaryReason - 1] || '-',
             disponibility: string = EnumDisponibility[this.dataProcessed.voluntaryDisponibility - 1] || '-';
 
@@ -98,7 +98,7 @@ export class CreateSubscriberUseCase {
     }
 
     private serviceType() {
-        let occupationArea: string = this.getSelectedValues(this.dataProcessed.commercialOccupationArea2, EnumServiceOccupationArea) || '-',
+        let occupationArea: string = this.getSelectedValues(this.dataProcessed.serviceOccupationArea, EnumServiceOccupationArea) || '-',
             wayOfWorking: string = EnumWayOfWorking[this.dataProcessed.serviceWayOfWorking - 1] || '-',
             billingWay: string = EnumBillingWay[this.dataProcessed.serviceBillingWay - 1] || '-',
             schooling: string = EnumSchooling[this.dataProcessed.serviceSchooling - 1] || '-',
