@@ -128,12 +128,11 @@ export class CreateSubscriberUseCase {
 
         if (data.length > 0) {
             splitedData.map((val: string) => {
-                returnData += `- ${selectedEnum[parseInt(val)]}; `;
+                returnData += `- ${selectedEnum[parseInt(val) - 1]}; `;
             });
         } else {
             returnData = '-';
         }
-    
 
         return returnData;
     }
